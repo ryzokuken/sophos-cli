@@ -1,18 +1,20 @@
+mod error;
+
+use error::SophosdError;
+use std::error::Error;
 use xml::reader::{EventReader, XmlEvent};
 
-// TODO: use Result objects if possible.
-fn validate_login(username: &str, password: &str) -> bool {
-    if username.replace(" ", "").is_empty() || password.is_empty() {
-        return false;
+fn validate_login(username: &str, password: &str) -> Result<(), error::SophosdError> {
+    if username.replace(" ", "").is_empty() {
+        return Err(SophosdError::new_username());
+    } else if password.is_empty() {
+        return Err(SophosdError::new_password());
     }
-    true
+    Ok(())
 }
 
-fn login(username: &str, password: &str) -> Result<(), Box<dyn std::error::Error>> {
-    if !validate_login(username, password) {
-        panic!("Invalid parameters")
-    }
-
+fn login(username: &str, password: &str) -> Result<(), Box<dyn Error>> {
+    validate_login(username, password)?;
     let params = [
         ("mode", "191"),
         ("username", username),
@@ -31,11 +33,10 @@ fn login(username: &str, password: &str) -> Result<(), Box<dyn std::error::Error
             println!("{}", val);
         }
     }
-
     Ok(())
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().collect();
     let username = args[1].as_str();
     let password = args[2].as_str();
