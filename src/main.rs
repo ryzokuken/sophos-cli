@@ -8,10 +8,7 @@ fn validate_login(username: &str, password: &str) -> bool {
     true
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let args: Vec<String> = std::env::args().collect();
-    let username = args[1].as_str();
-    let password = args[2].as_str();
+fn login(username: &str, password: &str) -> Result<(), Box<dyn std::error::Error>> {
     if !validate_login(username, password) {
         panic!("Invalid parameters")
     }
@@ -36,4 +33,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     Ok(())
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args: Vec<String> = std::env::args().collect();
+    let username = args[1].as_str();
+    let password = args[2].as_str();
+    login(username, password)
 }
