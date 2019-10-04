@@ -16,7 +16,7 @@ Clone this repository
 
 ## Method 2: Using [`cargo deb`](https://docs.rs/cargo-deb/1.21.1/cargo_deb/) (only for Debian based Linux distributions)
 
-If you don't want to `cd` to the base directory of `sophosd` every time you want to use it, you can create a binary Debian package `.deb` using the cargo-deb command and install it.
+If you don't want to `cd` to the base directory of `sophosd` every time you want to use it, you can create a binary Debian package `.deb` using the `cargo-deb` command and install it.
 
 First you would need to install the `cargo deb` command using:
 
