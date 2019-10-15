@@ -1,24 +1,28 @@
 # `sophosd`
 
-Daemon for connecting to Sophos written in Rust.
+A CLI daemon for connecting to Sophos
 
 ## Dependencies
 
-For Windows and MacOS users
-
+#### MacOS users
 * Rust compiler and Cargo Package manager (see https://www.rust-lang.org/tools/install)
 
-For Linux users
-
+#### For Linux users
 * Rust compiler and Cargo Package manager (see https://www.rust-lang.org/tools/install)
-* OpenSSL 1.0.1, 1.0.2, or 1.1.0 with headers (see https://github.com/sfackler/rust-openssl)
 * OpenSSL Development Package - this is `libssl-dev` on Ubuntu and `openssl-devel` on Fedora
 
 ## Installation and Usage
 
 Clone this repository
 
-`cd` to base directory where `Cargo.toml` is located and type:
+To build the binaries and run ```sophosd ```, `cd` to base directory where `Cargo.toml` and type:
 
-```cargo run <username> <password> ```
+``` cargo run <username> <password> ```
 
+## Contributing
+
+This is an open source project and we would love your help. If you are having trouble regarding anything related to this project open a issue in the [issue section](github.com/ryzokuken/sophosd/issues)
+
+## License
+
+```sophosd``` is released under MIT License
