@@ -4,6 +4,11 @@ A CLI daemon for connecting to Sophos
 
 ## Dependencies
 
+#### Windows Users
+* [Git](https://git-scm.com)
+* Microsoft Visual C++ build tools (see https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019)
+* Rust compiler and Cargo Package manager (see https://www.rust-lang.org/tools/install)
+
 #### MacOS users
 * Rust compiler and Cargo Package manager (see https://www.rust-lang.org/tools/install)
 
