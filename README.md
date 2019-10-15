@@ -15,6 +15,7 @@ A CLI daemon for connecting to Sophos
 #### For Linux users
 * Rust compiler and Cargo Package manager (see https://www.rust-lang.org/tools/install)
 * OpenSSL Development Package - this is `libssl-dev` on Ubuntu and `openssl-devel` on Fedora
+* pkg-config
 
 ## Installation and Usage
 
