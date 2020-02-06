@@ -1,3 +1,6 @@
+extern crate clap;
+use clap::{Arg, App};
+
 mod error;
 
 use error::SophosdError;
@@ -37,8 +40,31 @@ fn login(username: &str, password: &str) -> Result<(), Box<dyn Error>> {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let args: Vec<String> = std::env::args().collect();
-    let username = args[1].as_str();
-    let password = args[2].as_str();
+	let sopd = App::new("sophosd")
+						  .version("0.1")
+						  .about("A CLI client to help you connect to Sophos")
+						  .author("Ujjwal Sharma")
+
+						  .arg(Arg::with_name("username")
+						      .short("u")
+							  .value_name("USERNAME")
+							  .required(true)
+						      .takes_value(true)
+						      .number_of_values(1)
+							  .help("Your Enrollment Number"))
+							  
+						  .arg(Arg::with_name("password")
+						      .required(true)
+							  .short("p")
+							  .value_name("PASSWORD")
+							  .takes_value(true)
+							  .number_of_values(1)
+							  .help("Your Password"))
+
+						  .get_matches();
+
+	let username = sopd.value_of("username").unwrap();
+	let password = sopd.value_of("password").unwrap();
+
     login(username, password)
 }
